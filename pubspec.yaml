@@ -1,0 +1,26 @@
+name: codeword_analysis
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment:
+  sdk: ">=2.19.6 <3.0.0"
+
+dependencies:
+  cupertino_icons: ^1.0.2
+  get: 4.6.5
+  flutter:
+    sdk: flutter
+
+  realm: ^1.0.3
+  date_format: ^2.0.7
+  expandable: ^5.0.1
+  pasteboard: ^0.2.0
+  easy_refresh: ^3.3.1+1
+
+dev_dependencies:
+  flutter_lints: ^2.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
