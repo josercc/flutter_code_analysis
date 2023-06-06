@@ -50,10 +50,33 @@ class DateHistoryController extends GetxController {
     if (editHistoryDescriptions.isEmpty) return;
     int remainCount =
         book.bookWordCount - editHistoryDescriptions.first.totalCount;
-    description.value =
-        "${getChapterDateString(dateTime)} 码字:$_editCount,目前剩余存稿字数:${editHistoryDescriptions.first.noPublishCount}, 总字数:${editHistoryDescriptions.first.totalCount}。${remainCount > 0 ? "距离目标还有$remainCount字" : "超出目标$remainCount字"}";
+    if (historys.isEmpty) {
+      description.value = "";
+    } else {
+      description.value =
+          "${getChapterDateString(dateTime)} 码字:$_editCount,目前剩余存稿字数:${editHistoryDescriptions.first.noPublishCount}, 总字数:${editHistoryDescriptions.first.totalCount}。${remainCount > 0 ? "距离目标还有$remainCount字" : "超出目标$remainCount字"}";
+    }
   }
 
   int get _editCount => historys.fold(
       0, (previousValue, element) => previousValue + element.wordCount);
+
+  void removeHistory(EditHistory history) {
+    realm.write(() => realm.delete(history));
+    _reload();
+  }
+
+  void _reload() {
+    historys.value = realm.all<EditHistory>().query(
+      "chapter.book==\$0",
+      [book],
+    ).where(
+      (element) {
+        return getChapterDateString(
+                DateTime.fromMillisecondsSinceEpoch(element.timeInterval)) ==
+            getChapterDateString(dateTime);
+      },
+    ).toList();
+    _updateDayDescription();
+  }
 }

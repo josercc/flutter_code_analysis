@@ -17,4 +17,17 @@ class RealmController extends GetxController {
       migrationCallback: (migration, oldSchemaVersion) {},
     ));
   }
+
+  void initRealm() {
+    realm = Realm(Configuration.local(
+      [
+        Book.schema,
+        Chapter.schema,
+        EditHistory.schema,
+        EditDayDescription.schema
+      ],
+      schemaVersion: 4,
+      migrationCallback: (migration, oldSchemaVersion) {},
+    ));
+  }
 }

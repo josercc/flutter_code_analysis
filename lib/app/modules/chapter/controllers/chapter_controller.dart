@@ -20,10 +20,10 @@ class ChapterController extends GetxController {
   ChapterController() {
     book = Get.arguments;
     realm = Get.find<RealmController>().realm;
-    _loadChapters();
+    loadChapters();
   }
 
-  void _loadChapters() {
+  void loadChapters() {
     // RealmResults<Chapter> results = realm.query<Chapter>(
     //     'book == \$0', [book]);
     //     res
@@ -59,7 +59,7 @@ class ChapterController extends GetxController {
       realm.add(chapter);
       realm.add(editHistory);
     });
-    _loadChapters();
+    loadChapters();
     chapterWordCountTextController.clear();
     reloadEditDayDescription(realm, book, dateTime: publicTime.value);
   }
@@ -72,5 +72,12 @@ class ChapterController extends GetxController {
     DateTime? time = await showDatePickerDialog(context);
     if (time == null) return;
     publicTime.value = time;
+  }
+
+  void removeChapter(Chapter chapter) {
+    realm.write(() {
+      realm.delete(chapter);
+    });
+    loadChapters();
   }
 }

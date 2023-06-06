@@ -1,6 +1,7 @@
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:realm/realm.dart';
+import 'package:tencentcloud_cos_sdk_plugin/cos.dart';
 
 import '../data/realm/book.dart';
 

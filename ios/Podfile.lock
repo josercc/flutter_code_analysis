@@ -1,27 +1,64 @@
 PODS:
   - Flutter (1.0.0)
+  - flutter_svprogresshud (0.0.7):
+    - Flutter
+    - flutter_svprogresshud/SVProgressHUD_Core (= 0.0.7)
+  - flutter_svprogresshud/SVProgressHUD_Core (0.0.7):
+    - Flutter
   - pasteboard (0.0.1):
     - Flutter
+  - QCloudCore (6.2.3):
+    - QCloudCore/Default (= 6.2.3)
+  - QCloudCore/Default (6.2.3)
+  - QCloudCOSXML (6.2.3):
+    - QCloudCOSXML/Default (= 6.2.3)
+  - QCloudCOSXML/Default (6.2.3):
+    - QCloudCore (= 6.2.3)
   - realm (1.0.3):
     - Flutter
+  - shared_preferences_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+  - tencentcloud_cos_sdk_plugin (1.0.4):
+    - Flutter
+    - QCloudCOSXML (>= 6.1.7)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
+  - flutter_svprogresshud (from `.symlinks/plugins/flutter_svprogresshud/ios`)
   - pasteboard (from `.symlinks/plugins/pasteboard/ios`)
   - realm (from `.symlinks/plugins/realm/ios`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/ios`)
+  - tencentcloud_cos_sdk_plugin (from `.symlinks/plugins/tencentcloud_cos_sdk_plugin/ios`)
+
+SPEC REPOS:
+  trunk:
+    - QCloudCore
+    - QCloudCOSXML
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
+  flutter_svprogresshud:
+    :path: ".symlinks/plugins/flutter_svprogresshud/ios"
   pasteboard:
     :path: ".symlinks/plugins/pasteboard/ios"
   realm:
     :path: ".symlinks/plugins/realm/ios"
+  shared_preferences_foundation:
+    :path: ".symlinks/plugins/shared_preferences_foundation/ios"
+  tencentcloud_cos_sdk_plugin:
+    :path: ".symlinks/plugins/tencentcloud_cos_sdk_plugin/ios"
 
 SPEC CHECKSUMS:
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  flutter_svprogresshud: 821512698d752572c11a1c0ad11fd359c687054e
   pasteboard: 982969ebaa7c78af3e6cc7761e8f5e77565d9ce0
+  QCloudCore: 448005f6c4515d869ee5b0e1faed5095f897f10a
+  QCloudCOSXML: f6b373f2de9282b3c0e1e0fcf8b42b5cf83f7827
   realm: 28b62c47c048b71ab9f38c0353bac0c2b9379400
+  shared_preferences_foundation: e2dae3258e06f44cc55f49d42024fd8dd03c590c
+  tencentcloud_cos_sdk_plugin: f1da4d8d632877866d5ccdffd56de28247485690
 
 PODFILE CHECKSUM: ef19549a9bc3046e7bb7d2fab4d021637c0c58a3
 

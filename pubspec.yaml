@@ -16,6 +16,10 @@ dependencies:
   expandable: ^5.0.1
   pasteboard: ^0.2.0
   easy_refresh: ^3.3.1+1
+  darty_json_safe: ^1.0.1
+  tencentcloud_cos_sdk_plugin: ^1.0.4
+  shared_preferences: ^2.1.1
+  flutter_svprogresshud: ^1.0.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0

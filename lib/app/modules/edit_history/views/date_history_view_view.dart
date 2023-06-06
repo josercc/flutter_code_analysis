@@ -1,5 +1,6 @@
 import 'package:codeword_analysis/app/data/realm/book.dart';
 import 'package:codeword_analysis/app/modules/edit_history/controllers/date_history_controller.dart';
+import 'package:codeword_analysis/app/widgets/delete_widget.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 
@@ -32,8 +33,14 @@ class DateHistoryViewView extends GetView<DateHistoryController> {
               controller.historys.length,
               (index) {
                 var history = controller.historys[index];
-                return ListTile(
-                  leading: Text(controller.editHistoryDescription(history)),
+                return DeleteWidget(
+                  deleteKey: ObjectKey(history),
+                  onDismissed: () {
+                    controller.removeHistory(history);
+                  },
+                  child: ListTile(
+                    leading: Text(controller.editHistoryDescription(history)),
+                  ),
                 );
               },
             ),

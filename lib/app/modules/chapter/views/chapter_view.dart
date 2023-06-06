@@ -1,6 +1,7 @@
 import 'package:codeword_analysis/app/data/realm/book.dart';
 import 'package:codeword_analysis/app/modules/chapter/views/add_chapter_view_view.dart';
 import 'package:codeword_analysis/app/routes/app_pages.dart';
+import 'package:codeword_analysis/app/widgets/delete_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -28,17 +29,24 @@ class ChapterView extends GetView<ChapterController> {
         () => ListView.separated(
           itemBuilder: (context, index) {
             Chapter chapter = controller.chapters[index];
-            return InkWell(
-              onTap: () async {
-                await Get.toNamed(Routes.CHAPTER_DETAIL, arguments: chapter);
-                controller.refresh();
+            return DeleteWidget(
+              deleteKey: ObjectKey(chapter),
+              onDismissed: () {
+                controller.removeChapter(chapter);
               },
-              child: Container(
-                color:
-                    chapter.isPublished ? Colors.grey[400] : Colors.green[100],
-                child: ListTile(
-                  title: Text("第 ${chapter.chapterIndex} 章"),
-                  subtitle: Text("章节字数:${chapter.chapterWordCount}"),
+              child: InkWell(
+                onTap: () async {
+                  await Get.toNamed(Routes.CHAPTER_DETAIL, arguments: chapter);
+                  controller.loadChapters();
+                },
+                child: Container(
+                  color: chapter.isPublished
+                      ? Colors.grey[400]
+                      : Colors.green[100],
+                  child: ListTile(
+                    title: Text("第 ${chapter.chapterIndex} 章"),
+                    subtitle: Text("章节字数:${chapter.chapterWordCount}"),
+                  ),
                 ),
               ),
             );
